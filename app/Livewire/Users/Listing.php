@@ -37,31 +37,38 @@ class Listing extends Component
             'class'   => 'text-center w-40',
             'actions' => [
                 [
-                    'label'   => 'View',
-                    'icon'    => 'eye',
-                    'color'   => 'sky',
-                    'variant' => 'primary',
+                    'label'     => 'View',
+                    'icon'      => 'eye',
+                    'color'     => 'sky',
+                    'variant'   => 'primary',
+                    'type'      => 'view',
+                    'eventType' => 'modal',
+                    'modalName' => 'user-form-modal',
                 ],
                 [
-                    'label'   => 'Edit',
-                    'icon'    => 'pencil',
-                    'color'   => 'blue',
-                    'variant' => 'primary',
+                    'label'     => 'Edit',
+                    'icon'      => 'pencil',
+                    'color'     => 'blue',
+                    'variant'   => 'primary',
+                    'type'      => 'edit',
+                    'eventType' => 'modal',
+                    'modalName' => 'user-form-modal',
                 ],
                 [
                     'label'   => 'Delete',
                     'icon'    => 'trash',
                     'color'   => 'red',
                     'variant' => 'primary',
+                    'type'    => 'delete',
                 ],
             ],
         ],
     ];
 
-    public $modelClass = User::class;
-    public int $perPage = 5;
-    public string $orderByKey = 'name';
-    public string $sortOrder = 'desc';
+    public $modelClass        = User::class;
+    public int $perPage       = 5;
+    public string $orderByKey = 'id';
+    public string $sortOrder  = 'desc';
 
     public function render()
     {

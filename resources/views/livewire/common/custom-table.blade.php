@@ -41,9 +41,13 @@
                                 @case('actions')
                                     <div class="flex justify-center gap-1">
                                         @foreach ($column['actions'] as $action)
-                                            <flux:button class="cursor-pointer {{ $action['class'] ?? '' }}"
-                                                icon="{{ $action['icon'] }}" color="{{ $action['color'] }}"
-                                                variant="{{ $action['variant'] }}">
+                                            @php
+                                                $action = array_merge($action, ['rowId' => $row->id]);
+                                            @endphp
+
+                                            <flux:button wire:click="actionClickHandler({{ json_encode($action) }})"
+                                                class="cursor-pointer {{ $action['class'] ?? '' }}" icon="{{ $action['icon'] }}"
+                                                color="{{ $action['color'] }}" variant="{{ $action['variant'] }}">
                                             </flux:button>
                                         @endforeach
 
