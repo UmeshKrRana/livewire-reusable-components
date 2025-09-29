@@ -23,6 +23,10 @@
                     wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 <flux:navlist.item icon="users" :href="route('users')" :current="request()->routeIs('users')"
                     wire:navigate>{{ __('Users') }}</flux:navlist.item>
+
+                {{-- Image gallery management --}}
+                <flux:navlist.item icon="photo" :href="route('galleries')" :current="request()->routeIs('galleries')"
+                    wire:navigate>{{ __('Gallery Management') }}</flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 
@@ -114,7 +118,8 @@
                 <flux:menu.separator />
 
                 <flux:menu.radio.group>
-                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}
+                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                        {{ __('Settings') }}
                     </flux:menu.item>
                 </flux:menu.radio.group>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\GalleryManagement;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -23,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Users
     Route::get('users', Listing::class)->name('users');
+    Route::get('galleries', GalleryManagement::class)->name('galleries');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
