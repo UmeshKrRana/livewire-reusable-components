@@ -1,5 +1,7 @@
 <?php
 
+use App\Facades\Greeting;
+use App\Http\Controllers\TestController;
 use App\Livewire\GalleryManagement;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
@@ -10,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('greet/{name}', function($name) {
+    return Greeting::greet($name);
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -25,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
     // Users
     Route::get('users', Listing::class)->name('users');
     Route::get('galleries', GalleryManagement::class)->name('galleries');
+
+    Route::get('test', [TestController::class, 'index']);
 });
 
 require __DIR__ . '/auth.php';
